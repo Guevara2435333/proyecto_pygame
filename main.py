@@ -12,7 +12,7 @@ blue = (0, 0, 255)
 
 # Dimensiones de la pantalla (matriz de píxeles)
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Juego de atrapa objetos")
+pygame.display.set_caption("Atrapa objetos")
 
 #SECCION JUGADOR
 
@@ -20,6 +20,7 @@ pygame.display.set_caption("Juego de atrapa objetos")
 player_width = 100
 player_height = 20
 player_color = blue
+player_speed = 2 
 
 # posicion inicio jugador
 player_start_x = (screen_width / 2) - (player_width / 2)
@@ -39,6 +40,26 @@ while running:
         # Si se cierra la ventana, salir del bucle
         if event.type == pygame.QUIT:
             running = False
+
+
+# movimiento
+
+    keys = pygame.key.get_pressed() #detectar teclas
+
+# mover jugador en base a teclas
+
+    if keys[pygame.K_LEFT]: 
+        player_rect.x -= player_speed
+    if keys[pygame.K_RIGHT]:
+        player_rect.x += player_speed
+
+# liimite movimiento jugador
+
+    if player_rect.left < 0:
+        player_rect.left = 0
+    if player_rect.right > screen_width:
+        player_rect.right = screen_width
+
 
 
     screen.fill(black)
