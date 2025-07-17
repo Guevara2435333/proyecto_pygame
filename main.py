@@ -4,7 +4,7 @@ import time
 
 pygame.init() 
 
-screen_width = 800
+screen_width = 700
 screen_height = 800
 
 black = (0, 0, 0)  # Color negro
@@ -32,7 +32,7 @@ game_over_font = pygame.font.Font(None, 72)
 player_width = 100
 player_height = 20
 player_color = blue
-player_speed = 10 
+player_speed = 25
 
 # posicion inicio jugador
 player_start_x = (screen_width / 2) - (player_width / 2)
@@ -50,7 +50,7 @@ player_rect = pygame.Rect(player_start_x, player_start_y, player_width, player_h
 object_width = 40
 object_height = 40
 object_color = red
-object_speed = 3
+object_speed = 5.7
 # Esta es la lista que guardará todos los objetos que están en la pantalla.
 falling_objects = []
 
@@ -67,7 +67,6 @@ while running:
         # Si se cierra la ventana, salir del bucle
         if event.type == pygame.QUIT:
             running = False
-
 
 # movimiento
 
@@ -90,7 +89,7 @@ while running:
     
 # 1. Crear un nuevo objeto de vez en cuando
     
-    if random.random() < 0.02:
+    if random.random() < 0.01:
         object_x = random.randint(0, screen_width- object_width)
         new_object_rect = pygame.Rect(object_x, 0, object_width, object_height)
         falling_objects.append(new_object_rect)
@@ -153,7 +152,7 @@ if game_over:
     pygame.display.flip()
     #espera 3 segundos antes de cerrar el juego
     time.sleep(3)
-    
+        
 
 
 pygame.quit()
