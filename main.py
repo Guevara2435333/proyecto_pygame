@@ -9,6 +9,7 @@ screen_height = 600
 black = (0, 0, 0)  # Color negro
 white = (255, 255, 255)
 blue = (0, 0, 255)  
+red = (255, 0, 0)
 
 # Dimensiones de la pantalla (matriz de píxeles)
 screen = pygame.display.set_mode((screen_width, screen_height))
