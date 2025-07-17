@@ -91,6 +91,19 @@ while running:
     pygame.draw.rect(screen, player_color, player_rect)
 
 
+# Dibujar todos los objetos:
+
+    for obj_rect in falling_objects:
+        pygame.draw.rect(screen, object_color, obj_rect)
+
+#Limpiar Objetos:
+    objects_on_screen = []
+    for obj_rect in falling_objects:
+        if obj_rect.top < screen_height :
+            objects_on_screen.append(obj_rect)
+
+    falling_objects = objects_on_screen
+
     pygame.display.flip()  # Actualizar la pantalla
 
 
