@@ -1,5 +1,6 @@
 import pygame
 import random
+import time
 
 pygame.init() 
 
@@ -142,8 +143,8 @@ if game_over:
     game_over_text = game_over_font.render("GAME OVER", True, red)
     final_score_text = font.render(f"Puntuación Final: {score}", True, white)
 
-    game_over_rect = game_over_text.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 40))
-    final_score_rect = final_score_text.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 40))
+    game_over_rect = game_over_text.get_rect(center=(screen_width / 2, screen_height / 2 - 40))
+    final_score_rect = final_score_text.get_rect(center=(screen_width / 2, screen_height / 2 + 40))
 
     screen.blit(game_over_text, game_over_rect)
     screen.blit(final_score_text, final_score_rect)
