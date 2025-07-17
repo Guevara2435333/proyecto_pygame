@@ -1,3 +1,11 @@
+#Fundamentos Programacion Imperativa
+#Proyecto Pygame
+#Profesor: John Alexander Vargas
+#Samuel David Sepulveda - 2435333
+#Sebastian Muñoz Giraldo - 2516108
+
+
+
 import pygame
 import random
 import time
