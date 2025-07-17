@@ -38,7 +38,7 @@ player_rect = pygame.Rect(player_start_x, player_start_y, player_width, player_h
 #  DEFINICIÓN DE LOS OBJETOS QUE CAEN
 object_width = 40
 object_height = 40
-object_color = RED
+object_color = red
 object_speed = 5
 # Esta es la lista que guardará todos los objetos que están en la pantalla.
 falling_objects = []
