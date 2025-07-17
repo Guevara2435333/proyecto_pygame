@@ -41,7 +41,7 @@ player_rect = pygame.Rect(player_start_x, player_start_y, player_width, player_h
 #  DEFINICIÓN DE LOS OBJETOS QUE CAEN
 object_width = 40
 object_height = 40
-object_color = RED
+object_color = red
 object_speed = 0.5
 # Esta es la lista que guardará todos los objetos que están en la pantalla.
 falling_objects = []
@@ -112,8 +112,8 @@ while running:
        pygame.draw.rect(screen, object_color, obj_rect)
            
 
-   score_surface = font.render(f"Puntuación: {score}", True, white)
-   screen.blit(score_surface, (10, 10))
+    score_surface = font.render(f"Puntuación: {score}", True, white)
+    screen.blit(score_surface, (10, 10))
 
     pygame.display.flip()  # Actualizar la pantalla
 
@@ -122,3 +122,4 @@ while running:
 pygame.quit()
 
 print("Juego terminado")
+
