@@ -14,6 +14,9 @@ red = (255, 0, 0)
 # Dimensiones de la pantalla (matriz de píxeles)
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Atrapa objetos")
+#PUNTUACIÓN Y TEXTO:
+score=0
+font = pygame.font.Font(None,36)
 
 #SECCION JUGADOR
 
@@ -38,8 +41,8 @@ player_rect = pygame.Rect(player_start_x, player_start_y, player_width, player_h
 #  DEFINICIÓN DE LOS OBJETOS QUE CAEN
 object_width = 40
 object_height = 40
-object_color = red
-object_speed = 5
+object_color = RED
+object_speed = 0.1
 # Esta es la lista que guardará todos los objetos que están en la pantalla.
 falling_objects = []
 
@@ -81,8 +84,16 @@ while running:
         
 # 2. Mover cada objeto en la lista hacia abajo
     
-    for obj_rect in falling_objects:
+    for obj_rect in falling_objects[:]:
         obj_rect.y += object_speed
+    #Comprobar si hay un choque con el jugador:
+        if player_rect.colliderect(obj_rect):
+            score += 1
+            falling_objects.remove(obj_rect)
+            print(f"¡Punto! Puntuación: {score}")
+        elif obj_rect.top > screen_height:
+            falling_objects.remove(obj_rect)
+    
 
 
     screen.fill(black)
