@@ -61,6 +61,18 @@ while running:
     if player_rect.right > screen_width:
         player_rect.right = screen_width
 
+    
+# 1. Crear un nuevo objeto de vez en cuando
+    
+    if random.random() < 0.02:
+        object_x = random.randint(0, SCREEN_WIDTH - OBJECT_WIDTH)
+        new_object_rect = pygame.Rect(object_x, 0, OBJECT_WIDTH, OBJECT_HEIGHT)
+        falling_objects.append(new_object_rect)
+        
+# 2. Mover cada objeto en la lista hacia abajo
+    
+    for obj_rect in falling_objects:
+        obj_rect.y += OBJECT_SPEED
 
 
     screen.fill(black)
