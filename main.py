@@ -4,7 +4,7 @@ import random
 pygame.init() 
 
 screen_width = 800
-screen_height = 600
+screen_height = 800
 
 black = (0, 0, 0)  # Color negro
 white = (255, 255, 255)
@@ -42,7 +42,7 @@ player_rect = pygame.Rect(player_start_x, player_start_y, player_width, player_h
 object_width = 40
 object_height = 40
 object_color = RED
-object_speed = 0.1
+object_speed = 0.5
 # Esta es la lista que guardará todos los objetos que están en la pantalla.
 falling_objects = []
 
@@ -77,7 +77,7 @@ while running:
     
 # 1. Crear un nuevo objeto de vez en cuando
     
-    if random.random() < 0.02:
+    if random.random() < 0.001:
         object_x = random.randint(0, screen_width- object_width)
         new_object_rect = pygame.Rect(object_x, 0, object_width, object_height)
         falling_objects.append(new_object_rect)
@@ -107,13 +107,13 @@ while running:
     for obj_rect in falling_objects:
         pygame.draw.rect(screen, object_color, obj_rect)
 
-#Limpiar Objetos:
-    objects_on_screen = []
+#Dibujar objetos que quedan en la lista
     for obj_rect in falling_objects:
-        if obj_rect.top < screen_height :
-            objects_on_screen.append(obj_rect)
+       pygame.draw.rect(screen, object_color, obj_rect)
+           
 
-    falling_objects = objects_on_screen
+   score_surface = font.render(f"Puntuación: {score}", True, white)
+   screen.blit(score_surface, (10, 10))
 
     pygame.display.flip()  # Actualizar la pantalla
 
